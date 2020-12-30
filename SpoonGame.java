@@ -3,10 +3,10 @@ import java.util.HashSet;
 import java.util.Scanner;
 
 class SpoonGame{
-private ArrayList<Card> player = new ArrayList<>();
-private ArrayList<Card> CPU = new ArrayList<>();
+private ArrayList<Card> player = new ArrayList<>();//player deck of cards
+private ArrayList<Card> CPU = new ArrayList<>(); //CPU deck of cards
 private Deck deck = new Deck();
-private boolean next = true;
+private boolean next = true; //for "while"snt85c/hyperskills-java loop
 int counter = 1;
 
 public void start(){
@@ -14,7 +14,7 @@ System.out.printf("%n %50s %n %n","///SPOON///");
   deck.create();//create a deck, removes the Jolly and all cards above 10 (below)
   deck.removeJ();
   deck.removeS();
-  deck.shuffleX();
+  deck.shuffleX();//shuffles the deck 
   player.addAll(deck.get(4));//gives 4 cards to the player
   CPU.addAll(deck.get(4));//gives 4 cards to the CPU
   this.phases();//starts the game
@@ -24,8 +24,8 @@ public void phases(){
   Scanner scan = new Scanner(System.in);
   int toRemove = -1;//initialize remove to a neutral setting
   while(next){//main loop of the game
-    this.bothHands();
-    if(deck.size()==0){ //draw exit, all cards have been drawed
+    this.bothHands();//visualize player and CPU hands
+    if(deck.size()==0){ //"draw" exit, all cards have been drawed
       System.out.printf("%n %50s %n ","///DRAW (no more cards)///\n");
       System.exit(1);
     }
@@ -49,11 +49,11 @@ public void phases(){
       //winning condition, all player cards have the same number
       next = false; //ends the while loop
       System.out.printf("%n %50s %n ","///WINNER///\n");
-      this.bothHandsEND();//shows CPU and player one more itme
+      this.bothHandsEND();//shows CPU and player one more time, speciaal visualization with no card selection prompt
       System.exit(1);
     }
     CPUPlays();//the computer plays his phase
-    counter++;//add +1 to the counter, for graphic purpose only no game-//empty the screenlogic breaker
+    counter++;//add +1 to the counter, for graphic purpose only no game- logic breaker
     //empty the screen
     System.out.print("\033[H\033[2J");
     System.out.flush();
@@ -64,7 +64,7 @@ public void phases(){
 public void CPUPlays(){
   HashSet <String> cards = new HashSet<>();//HashSet to find duplicate
   ArrayList <Card> extra = new ArrayList<>();//ArrayList to store duplicate
-  for (int i = 0; i<CPU.size();i++){
+  for (int i = 0; i<CPU.size();i++){//cycle thorugh CPU cards
     if(cards.add(CPU.get(i).getNumber())== false){//if assignment fails (because cards is HashSet)
       extra.add(CPU.get(i));//then add to extra list, as it is duplicate(1)
     }
@@ -105,7 +105,7 @@ public void bothHands(){
   System.out.println("---------------------------------cards left:"+ deck.size());
 }
 
-public void bothHandsEND(){//removes the number for selection, used for game over
+public void bothHandsEND(){//removes the number for selection in the player cards, used for game over
     System.out.print("PHASE");
     System.out.print(counter<10?"0"+counter: counter);//add a zero if less than 2 digits
     System.out.print("---------------------------------------\n");
