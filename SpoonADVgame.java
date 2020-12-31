@@ -13,7 +13,7 @@ class SpoonADVgame{
 
   public void start(){
     System.out.printf("%n %35s %n %n","///SPOON  - Advanced///");
-    deck.create();//create a deck, removes the Jolly and all cards above 7 (below)
+    deck.create();//create a deck, removes the Jolly and all cards above 7 (below). remove 7 to 10
     deck.removeJ();
     deck.removeS();
     deck.remove7to10();
