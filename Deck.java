@@ -111,7 +111,6 @@ class Deck{
       }
     }
     deck.removeAll(toRemove);
-    //System.out.println(toString(toRemove)+" have been removed from the deck\n");
   }
   public void removeS(){ // removes special signs (Jack, Queen, King),
     ArrayList<Card> toRemove = new ArrayList<>();
@@ -121,10 +120,19 @@ class Deck{
       }
     }
     deck.removeAll(toRemove);
-    //System.out.println(toString(toRemove)+" have been removed from the deck\n");
   }
   public int size(){
     return deck.size();
+  }
+
+  public void remove7to10(){ //keeps only cards between 1 and 6 ( also, J,K,Q and Jolly) there are other removals to delete such. used for SpoonADV to make the game faster
+    ArrayList toRemove = new ArrayList<>();
+    for (Card e : deck){
+      if(Integer.valueOf(e.getNumber())>=7 && Integer.valueOf(e.getNumber()) <=10){
+        toRemove.add(e);
+      }
+    }
+    deck.removeAll(toRemove);
   }
 
 }
