@@ -9,7 +9,7 @@ class SpoonADVgame{
   private ArrayList<Card> table = new ArrayList<>(); 
   private Deck deck = new Deck(); 
   private boolean next = true; 
-  int counter = 1;
+  private int counter = 1;
 
   public void start(){
     System.out.printf("%n %35s %n %n","///SPOON  - Advanced///");

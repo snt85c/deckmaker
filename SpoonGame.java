@@ -7,7 +7,7 @@ private ArrayList<Card> player = new ArrayList<>();//player deck of cards
 private ArrayList<Card> CPU = new ArrayList<>(); //CPU deck of cards
 private Deck deck = new Deck();
 private boolean next = true; //for "while"snt85c/hyperskills-java loop
-int counter = 1;
+private int counter = 1;
 
 public void start(){
 System.out.printf("%n %50s %n %n","///SPOON///");

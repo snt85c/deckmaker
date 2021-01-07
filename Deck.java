@@ -22,9 +22,9 @@ class Deck{
   }
 
   public void create(){ //create a sorted deck
-      String numbers[] = {"1","2","3","4","5","6","7","8","9","10","Jack", "Queen", "King"};
-      String suits [] = {"♥", "♠", "♣", "♦"};
-      String colors [] = {"Black", "Red"};
+      final String numbers[] = {"1","2","3","4","5","6","7","8","9","10","Jack", "Queen", "King"};
+      final String suits [] = {"♥", "♠", "♣", "♦"};
+      final String colors [] = {"Black", "Red"};
       for(int z = 0; z<2; z++){
         for(int j= 0; j<4; j++){
           for(int i = 0; i<13; i++){
